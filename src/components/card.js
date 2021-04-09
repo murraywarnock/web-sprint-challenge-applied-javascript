@@ -36,6 +36,7 @@ imageContainerDiv.classList.add("img-container");
 headlineDiv.textContent = article.headline;
 authorNameSpan.textContent = article.authorName;
 authorImage.src = article.authorPhoto;
+// Event listener on click
 cardDiv.addEventListener("click", () => {
   console.log(headlineDiv.textContent);
 })
@@ -69,6 +70,8 @@ axios
     // Make an array of topics, then traverse each item for articles
     // COULD NOT GET THIS TO WORK SO HAD TO HARD CODE
   //   console.log(topics);
+
+  //   Thought the line below should work, but it returns an empty array
   //   const topicsArray = Array.from(topics);
   //   console.log("topicsArray:", topicsArray);
 
