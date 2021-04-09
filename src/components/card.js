@@ -36,7 +36,9 @@ imageContainerDiv.classList.add("img-container");
 headlineDiv.textContent = article.headline;
 authorNameSpan.textContent = article.authorName;
 authorImage.src = article.authorPhoto;
-
+cardDiv.addEventListener("click", () => {
+  console.log(headlineDiv.textContent);
+})
 return cardDiv
 };
 
@@ -70,7 +72,7 @@ axios
   //   const topicsArray = Array.from(topics);
   //   console.log("topicsArray:", topicsArray);
 
-  //   topics.forEach((topic) => {
+  //   topicsArray.forEach((topic) => {
   //     // debugger;
   //     articles = topics.topic
   //     console.log(topic);
