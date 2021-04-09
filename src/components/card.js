@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -38,10 +40,10 @@ authorImage.src = article.authorPhoto;
 return cardDiv
 };
 
-console.log(Card({headline: "This is the Headline",
-authorPhoto: "authorPhoto URL here",
-authorName: "Ernest Hemingway"
-}));
+// console.log(Card({headline: "This is the Headline",
+// authorPhoto: "authorPhoto URL here",
+// authorName: "Ernest Hemingway"
+// }));
 
 
 const cardAppender = (selector) => {
@@ -55,4 +57,72 @@ const cardAppender = (selector) => {
   //
 }
 
+const cards = document.querySelector(".cards-container");
+// const topicsTabs = document.querySelectorAll(".tab");
+axios
+  .get(`https://lambda-times-api.herokuapp.com/articles`)
+  .then((result) => {
+    const topics = result.data.articles
+  
+    // Make an array of topics, then traverse each item for articles
+    // COULD NOT GET THIS TO WORK SO HAD TO HARD CODE
+  //   console.log(topics);
+  //   const topicsArray = Array.from(topics);
+  //   console.log("topicsArray:", topicsArray);
+
+  //   topics.forEach((topic) => {
+  //     // debugger;
+  //     articles = topics.topic
+  //     console.log(topic);
+  //     console.log(topic);
+  
+  //     articles.forEach((article) => {
+  //       cards.appendChild(Card(article));
+  //   })
+  // })
+
+    // Could not figure out how to traverse Nodelist topics, so had to hard code each one
+  // COMMENCE THE HARD CODING
+
+    const bootstrapArticles = topics.bootstrap 
+    bootstrapArticles.forEach((article) => {
+      cards.appendChild(Card(article));
+    })    
+    
+    const jqueryArticles = topics.jquery 
+    jqueryArticles.forEach((article) => {
+      cards.appendChild(Card(article));
+    })
+
+    const javascriptArticles = topics.javascript 
+    javascriptArticles.forEach((article) => {
+      cards.appendChild(Card(article));
+    })
+
+    const nodeArticles = topics.node 
+    nodeArticles.forEach((article) => {
+      cards.appendChild(Card(article));
+    })
+
+    const technologyArticles = topics.technology 
+    technologyArticles.forEach((article) => {
+      cards.appendChild(Card(article));
+    })
+
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+
+
 export { Card, cardAppender }
+
+    // const topicsTabs = document.querySelectorAll(".tab");
+    // console.log("Topics data: ", topics);
+    // console.log("Topics tabs: ", topicsTabs[1].textContent);
+    // topicsTabs.forEach((topic) => {
+    //   topic.textContent
+    // })
+    // topics.forEach((topic) => {
+    //   console.log(topic);
+    // })
