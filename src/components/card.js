@@ -17,7 +17,32 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
-}
+
+// HTML structure
+const cardDiv = document.createElement("div")
+const headlineDiv = cardDiv.appendChild(document.createElement("div"));
+const authorDiv = cardDiv.appendChild(document.createElement("div"));
+const imageContainerDiv = authorDiv.appendChild(document.createElement("div"));
+const authorImage = imageContainerDiv.appendChild(document.createElement("img"));
+const authorNameSpan = authorDiv.appendChild(document.createElement("span"));
+// Add Classes
+cardDiv.classList.add("card");
+headlineDiv.classList.add("headline");
+authorDiv.classList.add("author");
+imageContainerDiv.classList.add("img-container");
+// Populate Data
+headlineDiv.textContent = article.headline;
+authorNameSpan.textContent = article.authorName;
+authorImage.src = article.authorPhoto;
+
+return cardDiv
+};
+
+console.log(Card({headline: "This is the Headline",
+authorPhoto: "authorPhoto URL here",
+authorName: "Ernest Hemingway"
+}));
+
 
 const cardAppender = (selector) => {
   // TASK 6
