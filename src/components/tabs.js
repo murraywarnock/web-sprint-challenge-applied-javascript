@@ -46,5 +46,6 @@ const tabsAppender = (selector) => {
     })
   return tabList;
 }
+
 // console.log(tabsAppender('.cards-container'));
 export { Tabs, tabsAppender }
