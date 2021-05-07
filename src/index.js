@@ -4,7 +4,7 @@
 import 'regenerator-runtime'
 import { worker } from './mocks/browser'
 
-import { cardAppender } from './components/card'
+// import { cardAppender } from './components/card'
 import { tabsAppender } from './components/tabs'
 import { headerAppender } from './components/header'
 
@@ -12,4 +12,4 @@ worker.start()
 
 headerAppender('.header-container')
 tabsAppender('.tabs-container')
-cardAppender('.cards-container')
+// cardAppender('.cards-container')

@@ -44,7 +44,7 @@ const Card = (article) => {
 };
 
 
-const cardAppender = (selector) => {
+const cardAppender = (selector, array) => {
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -53,17 +53,25 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-  const cards = document.querySelector(".cards-container");
+  const cards = document.querySelector(selector); 
+  // const cards = document.querySelector(".cards-container");
   axios
-    .get(`https://lambda-times-api.herokuapp.com/articles`)
-    .then((result) => {
-      const topics = result.data.articles
+  .get(`https://lambda-times-api.herokuapp.com/articles`)
+  .then((result) => {
+    const topics = result.data.articles
+    // array.forEach((topic) => {
       for (const topic in topics) {
-        let articles = topics[topic];
-        articles.forEach((article) => {
+        var tab = topic;
+        console.log("Passed in Array: ", array);
+        console.log("array.indexOf('javascript'), tab: ", array.indexOf("javascript"), tab);
+        // if (array.indexOf(topic) > -1) {
+          let articles = topics[topic];
+          articles.forEach((article) => {
           cards.appendChild(Card(article))
-        })
+          })
+        // }
       }
+      // })
     })
     .catch((err) => {
         console.log(err);

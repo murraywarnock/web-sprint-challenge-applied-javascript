@@ -1,4 +1,7 @@
 import axios from "axios";
+import { cardAppender } from './card'
+
+const filterTopic = [];
 
 const Tabs = (topics) => {
   // TASK 3
@@ -17,7 +20,6 @@ const Tabs = (topics) => {
   //
       // HTML element structure
       const headerDiv = document.createElement("div");
-      const filterTopic = [];
       headerDiv.classList.add("topics");
 
       for (const topic in topics) {
@@ -68,5 +70,7 @@ const tabsAppender = (selector) => {
     })
   return tabList;
 }
+cardAppender('.cards-container', filterTopic)
+
 
 export { Tabs, tabsAppender }
