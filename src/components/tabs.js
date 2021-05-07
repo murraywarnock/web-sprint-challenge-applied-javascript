@@ -17,19 +17,30 @@ const Tabs = (topics) => {
   //
       // HTML element structure
       const headerDiv = document.createElement("div");
+      const filterTopic = [];
       headerDiv.classList.add("topics");
-      topics.forEach(topic => {
+
+      for (const topic in topics) {
+      // topics.forEach(topic => {
         const temp = headerDiv.appendChild(document.createElement("div"))
         temp.classList.add("tab");
-        temp.classList.add(topic);
+        temp.classList.add(topic.substring(0, 4));
         temp.textContent = (topic);
+        filterTopic.push(topic);
         temp.addEventListener("click", () => {
-          console.log(topic);
-        })
-      });
-     return headerDiv;
-}
-// console.log(Tabs(['javascript', 'bootstrap', 'technology']));
+          filterTopic.length = 0;
+          filterTopic.push(topic);
+          console.log(filterTopic);
+     })}
+ 
+      
+        // })
+      // });
+      
+      console.log("filterTopic: ", filterTopic)
+      // return headerDiv, filterTopic;
+      return headerDiv;
+    }
 const tabsAppender = (selector) => {
   // TASK 4
   // ---------------------
@@ -40,10 +51,16 @@ const tabsAppender = (selector) => {
   //
   let tabList = document.querySelector(selector);
   axios
-    .get("https://lambda-times-api.herokuapp.com/topics")
+    // .get("https://lambda-times-api.herokuapp.com/topics")
+    // .then((result) => {
+    //   const tabArray = result.data.topics;
+    //   console.log("Tabs array: ", tabArray);
+    //   tabList.appendChild(Tabs(tabArray));
+    // })    
+    .get("https://lambda-times-api.herokuapp.com/articles")
     .then((result) => {
-      const tabArray = result.data.topics;
-      console.log("Tabs result: ", result);
+     const tabArray = result.data.articles;
+      console.log("Tabs array: ", tabArray);
       tabList.appendChild(Tabs(tabArray));
     })
     .catch((err) => {
@@ -52,5 +69,4 @@ const tabsAppender = (selector) => {
   return tabList;
 }
 
-// console.log(tabsAppender('.cards-container'));
 export { Tabs, tabsAppender }

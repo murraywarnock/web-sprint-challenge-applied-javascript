@@ -33,13 +33,13 @@ const Card = (article) => {
   imageContainerDiv.classList.add("img-container");
   // Populate Data
   headlineDiv.textContent = article.headline;
-  authorNameSpan.textContent = article.authorName;
+  authorNameSpan.textContent = `By ${article.authorName}`;
   authorImage.src = article.authorPhoto;
-  // Event listener on click
-  cardDiv.addEventListener("click", () => {
-    console.log(headlineDiv.textContent);
-    console.log(cardDiv.classList);
-  })
+
+  // Event listener on click - future use if we had access to article content
+  // cardDiv.addEventListener("click", () => {
+  //   console.log("Card click: ", headlineDiv.textContent);
+  // })
   return cardDiv
 };
 
@@ -58,9 +58,7 @@ const cardAppender = (selector) => {
     .get(`https://lambda-times-api.herokuapp.com/articles`)
     .then((result) => {
       const topics = result.data.articles
-      console.log("topics:", topics);
       for (const topic in topics) {
-        console.log("topic:", topics[topic]);
         let articles = topics[topic];
         articles.forEach((article) => {
           cards.appendChild(Card(article))
@@ -74,13 +72,3 @@ const cardAppender = (selector) => {
     }
   
 export { Card, cardAppender }
-
-    // const topicsTabs = document.querySelectorAll(".tab");
-    // console.log("Topics data: ", topics);
-    // console.log("Topics tabs: ", topicsTabs[1].textContent);
-    // topicsTabs.forEach((topic) => {
-    //   topic.textContent
-    // })
-    // topics.forEach((topic) => {
-    //   console.log(topic);
-    // })
