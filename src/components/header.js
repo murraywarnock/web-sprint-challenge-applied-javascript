@@ -1,5 +1,6 @@
 const Header = (title, date, temp) => {
-  // TASK 1
+// function Header(title, date, temp) {
+    // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
   // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
@@ -31,7 +32,11 @@ const Header = (title, date, temp) => {
   return headerDiv;
 }
 
+// console.log(Header("This is the Title", "Jun 26, 1963", "70 degrees"));
+
+// let headerContainer = document.querySelector(".header-container");
 const headerAppender = (selector) => {
+
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
@@ -43,5 +48,5 @@ const headerAppender = (selector) => {
 
   return headerContainer;
 }
-
+// console.log(headerAppender('.header-container'));
 export { Header, headerAppender }

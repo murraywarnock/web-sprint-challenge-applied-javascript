@@ -29,7 +29,7 @@ const Tabs = (topics) => {
       });
      return headerDiv;
 }
-
+// console.log(Tabs(['javascript', 'bootstrap', 'technology']));
 const tabsAppender = (selector) => {
   // TASK 4
   // ---------------------
@@ -52,4 +52,5 @@ const tabsAppender = (selector) => {
   return tabList;
 }
 
+// console.log(tabsAppender('.cards-container'));
 export { Tabs, tabsAppender }

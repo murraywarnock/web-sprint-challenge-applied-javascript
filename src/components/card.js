@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -72,3 +74,13 @@ const cardAppender = (selector) => {
     }
   
 export { Card, cardAppender }
+
+    // const topicsTabs = document.querySelectorAll(".tab");
+    // console.log("Topics data: ", topics);
+    // console.log("Topics tabs: ", topicsTabs[1].textContent);
+    // topicsTabs.forEach((topic) => {
+    //   topic.textContent
+    // })
+    // topics.forEach((topic) => {
+    //   console.log(topic);
+    // })
