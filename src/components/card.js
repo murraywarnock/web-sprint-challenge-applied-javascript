@@ -63,7 +63,7 @@ const cardAppender = (selector, array) => {
       for (const topic in topics) {
         var tab = topic;
         console.log("Passed in Array: ", array);
-        console.log("array.indexOf('javascript'), tab: ", array.indexOf("javascript"), tab);
+        console.log("array.indexOf('javascript'), array: ", array.indexOf("javascript"), array);
         // if (array.indexOf(topic) > -1) {
           let articles = topics[topic];
           articles.forEach((article) => {
